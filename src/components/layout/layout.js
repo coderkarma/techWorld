@@ -7,7 +7,7 @@ import Footer from "../footer/footer";
 import "../../styles/main.scss";
 // import "./layout.scss";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isHome }) => {
     const data = useStaticQuery(graphql`
         query SiteTitleQuery {
             site {
@@ -21,11 +21,16 @@ const Layout = ({ children }) => {
     return (
         <>
             <Navbar siteTitle={data.site.siteMetadata.title} />
-            <section className="section">
-                <div className="container content">
-                    <main>{children}</main>
-                </div>
-            </section>
+            {isHome ? (
+                <main>{children}</main>
+            ) : (
+                <section className="section">
+                    <div className="container content">
+                        <main>{children}</main>
+                    </div>
+                </section>
+            )}
+
             <Footer siteTitle={data.site.siteMetadata.title} />
         </>
     );

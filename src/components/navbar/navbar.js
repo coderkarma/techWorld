@@ -46,6 +46,9 @@ const Navbar = ({ siteTitle }) => {
                     <Link to="/blog/" className="navbar-item">
                         Blog
                     </Link>
+                    <Link to="/Cars/" className="navbar-item">
+                        Cars
+                    </Link>
                 </div>
             </div>
         </nav>
